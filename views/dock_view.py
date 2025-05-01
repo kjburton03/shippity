@@ -80,3 +80,10 @@ def retrieve_dock(pk):
         serialized_dock = json.dumps(dict(query_results))
 
     return serialized_dock
+
+def create_dock(request_body):
+        with sqlite3.connect("./shipping.db") as conn: #sqlite3.connect is opening the connection to the database
+        conn.row_factory = sqlite3.Row #converts the database entry from a list of tuples to a dictionary entry that can be searched by name
+        db_cursor = conn.cursor() #creating a cursor object within the connection that allows you to manage sql queries
+
+# uhoh
